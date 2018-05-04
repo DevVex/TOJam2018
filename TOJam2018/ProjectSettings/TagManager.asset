@@ -7,6 +7,10 @@ TagManager:
   - LevelBounds
   - Music
   - Background
+  - PlayerCart
+  - PlayerPerson
+  - Ground
+  - Obstacle
   layers:
   - Default
   - TransparentFX
