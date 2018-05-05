@@ -6,17 +6,19 @@ namespace TOJAM
 {
     public class Player : MonoBehaviour
     {
+        public System.Action OnPlayerReset;
 
         [SerializeField] private Rigidbody2D _cartRigidbody;
         [SerializeField] private Rigidbody2D _personRigidbody;
 
+        public bool MovingForward { get { return _cartRigidbody.velocity.x > 0f; } }
+
         private float _speed = 1f;
-        private float _jumpForce = 30f;
+        private float _jumpForce = 15f;
         private float _jumpStrength = 0f;
 
-        private float _jumpMod = 500f;
         private float _minJumpForce = 0f;
-        private float _maxJumpForce = 100f;
+        private float _maxJumpForce = 375f;
 
         private float _jumpTime = 0.3f;
         private float _jumpTimeBase = 0.3f;
@@ -75,7 +77,7 @@ namespace TOJAM
                 return _jumpForce;
             }
 
-            return 0f;
+            return _cartRigidbody.velocity.y;
         }
 
         private void StopJump ()
@@ -115,12 +117,11 @@ namespace TOJAM
             float velY = _cartRigidbody.velocity.y;
 
             //temp update speed
-            //velX = _speed;
+            velX = _speed;
 
             if (Input.GetMouseButtonDown(0))
-            {
-                Jump();
-               // velY = _jumpForce;
+            {                
+                velY = Jump();
             }
 
             if (Input.GetMouseButtonUp(0))
@@ -130,7 +131,7 @@ namespace TOJAM
 
             if (_canJump == false)
             {
-                _cartRigidbody.AddForce(Vector2.up * _jumpStrength, ForceMode2D.Force);
+                _cartRigidbody.AddForce(Vector2.up * (_jumpStrength * (_jumpTime)), ForceMode2D.Force);
             }
 
             //update velocity
@@ -141,6 +142,11 @@ namespace TOJAM
         public void HitGround ()
         {
             _canJump = true;
+        }
+
+        public void LeftGround ()
+        {
+            //_canJump = false;
         }
         #endregion
 

@@ -16,6 +16,14 @@ namespace TOJAM
         {
 
         }
+
+        override protected void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == Constants.TAG_GROUND)
+            {
+                _playerRef.HitGround();
+            }
+        }
     }
 }
 

@@ -20,5 +20,14 @@ namespace TOJAM
                 _playerRef.HitGround();
             }
         }
+
+        virtual protected void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == Constants.TAG_GROUND)
+            {
+                _playerRef.LeftGround();
+            }
+        }
+
     }
 }

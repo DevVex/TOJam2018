@@ -7,7 +7,7 @@ namespace TOJAM
     public static class Constants 
     {
         //ENUMS
-        public enum GameState { none, menu, game, gameOver, paused}
+        public enum GameState { none, menu, game, gameOver, paused, launching}
 
         //GAMEPLAY VARIABLES
         public const float PLAYER_BASE_SPEED = 0f;
