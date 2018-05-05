@@ -29,6 +29,18 @@ namespace TOJAM
 
         private void SetupVariables()
         {
+            ObjectPoolManager.Instance.Init();
+        }
+
+        private void Start()
+        {
+            StartCoroutine(StartGame());
+        }
+
+        private IEnumerator StartGame ()
+        {
+            yield return new WaitForEndOfFrame();
+
             SetGameState(Constants.GameState.game);
         }
 

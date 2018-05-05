@@ -8,6 +8,7 @@ namespace TOJAM
     {
         //ENUMS
         public enum GameState { none, menu, game, gameOver, paused, launching}
+        public enum PlatformDifficulty { none, easy, medium, hard, expert}
 
         //GAMEPLAY VARIABLES
         public const float PLAYER_BASE_SPEED = 0f;

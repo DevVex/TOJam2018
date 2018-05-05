@@ -13,7 +13,12 @@ namespace TOJAM
 
         public bool MovingForward { get { return _cartRigidbody.velocity.x > 0f; } }
 
-        private float _speed = 1f;
+        //speed
+        private float _speed = 10f;
+        private float _minSpeed = 10f;
+        private float _maxSpeed = 100f;
+        private float _speedGain = 0.1f;
+
         private float _jumpForce = 15f;
         private float _jumpStrength = 0f;
 
@@ -32,9 +37,19 @@ namespace TOJAM
         //hit obstacles to gain or lose speed
 
         // Use this for initialization
+        private void Awake()
+        {
+            SetupVariables();
+        }
+
         void Start()
         {
+            SubscribeToEvents();
+        }
 
+        private void SetupVariables ()
+        {
+            _cartRigidbody.bodyType = RigidbodyType2D.Kinematic;
         }
 
         private void SubscribeToEvents ()
@@ -48,9 +63,12 @@ namespace TOJAM
                 GameManager.Instance.OnGameStateChanged -= HandleGameStateChanged;
         }
 
-        private void HandleGameStateChanged (Constants.GameState state)
+        private void HandleGameStateChanged(Constants.GameState state)
         {
-
+            if (state == Constants.GameState.game)
+            {
+                _cartRigidbody.bodyType = RigidbodyType2D.Dynamic;
+            }
         }
 
 
@@ -59,6 +77,7 @@ namespace TOJAM
         {
             if (GameManager.Instance.State == Constants.GameState.game)
             {
+                UpdateSpeed();
                 UpdateJump();
                 UpdateControls();
                 
@@ -92,6 +111,14 @@ namespace TOJAM
             
         }
 
+        private void UpdateSpeed()
+        {
+            if (_canJump == true)
+            {
+                _speed += _speedGain;
+            }
+        }
+
         private void UpdateJump ()
         {
             if(_canJump == false)
@@ -117,7 +144,7 @@ namespace TOJAM
             float velY = _cartRigidbody.velocity.y;
 
             //temp update speed
-            velX = _speed;
+            velX = Mathf.Clamp(_speed, _minSpeed, _maxSpeed);
 
             if (Input.GetMouseButtonDown(0))
             {                

@@ -755,7 +755,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
   cloudProjectId: 76deda0a-c82a-4db9-a7d5-e31ec7d69b5b
-  projectName: CorgiEngine
+  projectName: TOJam2018
   organizationId: bryan-winters-133622
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
