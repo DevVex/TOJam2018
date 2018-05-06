@@ -10,6 +10,7 @@ namespace TOJAM
         public enum GameState { none, menu, game, gameOver, paused, launching}
         public enum PlatformDifficulty { none, easy, medium, hard, expert, end}
         public enum ObstacleType { none, rockSmall, rockMed, rockLarge, trafficCone, oil, goat, car, barrier}
+        public enum MenuType { none, main, results}
 
         //GAMEPLAY VARIABLES
         public const float PLAYER_BASE_SPEED = 0f;
