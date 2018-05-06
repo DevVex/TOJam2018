@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Background
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 8d6d69e8c798d70408e2e074a3b25fd2, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 8fc8462ba7e999c4e8590e1db5fb104d, type: 3}
+  - {fileID: 21300000, guid: 04808cafb8a17d7488f33c1848342afd, type: 3}
+  - {fileID: 21300000, guid: 1cb63f7a6a76c2549af1a8bf39851ee5, type: 3}
+  - {fileID: 21300000, guid: 727a7ddbce6bad34bbb0577a9aa7d808, type: 3}
+  - {fileID: 21300000, guid: 6aef95347f7009541845016f352c4a86, type: 3}
+  - {fileID: 21300000, guid: db6aed9a36eebf24f80b9fae1a194e9c, type: 3}
+  - {fileID: 21300000, guid: f60d39139850f6442a76f3471861cd8a, type: 3}
+  - {fileID: 21300000, guid: 51ae6384721fbe84893f615a7332a9fd, type: 3}
+  - {fileID: 21300000, guid: b19548caa48e7fb429cb379636d5cf09, type: 3}
+  - {fileID: 21300000, guid: 25707cc404de01b40a06556598f630d0, type: 3}
+  - {fileID: 21300000, guid: 3812bba1e236d7b4d9713c734fbd2aff, type: 3}
+  - {fileID: 21300000, guid: 1e333cca050d08a428bf70a2ea8c97f2, type: 3}
+  - {fileID: 21300000, guid: 87c19d3b02494ab468a5b06a9167ca3e, type: 3}
+  - {fileID: 21300000, guid: 281ca29a495bc454da1e14aeaf377b4f, type: 3}
+  - {fileID: 21300000, guid: d94dd34858a14e54ba0d63183c5b3694, type: 3}
+  - {fileID: 21300000, guid: aa0ee13692c842d449c87d6999543a15, type: 3}
+  - {fileID: 21300000, guid: ab1372bcca9e57a4ca9f0ba8cecdc2b9, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - to_jam_18_bg_BG_mountain2
+  - to_jam_18_bg_MG_house2
+  - to_jam_18_bg_BG_mountain1
+  - to_jam_18_bg_MG_house1
+  - to_jam_18_bg_BG_mountain3
+  - to_jam_18_bg_MG_house3
+  - to_jam_18_bg_BG_sun
+  - to_jam_18_bg_MD_tree2
+  - to_jam_18_bg_MD_tree1
+  - to_jam_18_bg_MG_pinetree
+  - to_jam_18_bg_BG_cloud
+  - to_jam_18_bg_MG_fence
+  - to_jam_18_bg_MG_bush_large
+  - to_jam_18_bg_MG_bush_medium
+  - to_jam_18_bg_BG_sku
+  - to_jam_18_bg_MG_bush_small
+  - to_jam_18_bg_MG_grass
+  m_Tag: Background
+  m_IsVariant: 0
