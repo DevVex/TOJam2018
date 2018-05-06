@@ -10,11 +10,13 @@ namespace TOJAM
         [SerializeField] Transform _followTarget;
         [SerializeField] Transform _launchFollowTarget;
 
+        private bool _followBody = false;
+
         public Player Player { get { return _player; } }
         public Transform FollowTarget
         { get
             {
-                if (GameManager.Instance.State == Constants.GameState.launching)
+                if (_followBody == true)
                     return _launchFollowTarget;
                 else
                     return _followTarget;
@@ -31,6 +33,11 @@ namespace TOJAM
 
                 return _instance;
             }
+        }
+
+        public void SetFollowBody (bool followBody)
+        {
+            _followBody = followBody;
         }
     }
 }

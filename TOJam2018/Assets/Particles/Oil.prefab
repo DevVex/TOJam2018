@@ -54,7 +54,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd28a0e9161cd042af16770c329b637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  lowSpeed: 10
+  dampen: 4
 --- !u!114 &114505688835303882
 MonoBehaviour:
   m_ObjectHideFlags: 1

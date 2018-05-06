@@ -25,8 +25,6 @@ public class Tire : MonoBehaviour {
     private TireEffect currentEffect;
     private bool jumping;
 
-    [SerializeField] private Player _playerRef;
-
 	// Use this for initialization
 	void Start () {
         effects = new Dictionary<int, GameObject>();
@@ -40,13 +38,13 @@ public class Tire : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!jumping && !_playerRef.CanJump)
+        if (!jumping && !PlayerManager.Instance.Player.CanJump)
         {
             jumping = true;
             currentEffect.effect.GetComponent<ParticleSystem>().Stop();
         }
 
-        if(jumping && _playerRef.CanJump)
+        if(jumping && PlayerManager.Instance.Player.CanJump)
         {
             jumping = false;
             currentEffect.effect.GetComponent<ParticleSystem>().Play();

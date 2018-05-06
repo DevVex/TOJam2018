@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4970623703675158}
   - component: {fileID: 114043242620839982}
-  - component: {fileID: 95922047040305866}
   m_Layer: 0
   m_Name: LoadingManager
   m_TagString: Untagged
@@ -41,23 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95922047040305866
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900565153833032}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4941e1db2007f9047bd63820874a49f5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114043242620839982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,4 +51,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566dc134fc1d4ea4baa42e5db18c7b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loadingAnimator: {fileID: 95922047040305866}

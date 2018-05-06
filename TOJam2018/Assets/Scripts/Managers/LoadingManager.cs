@@ -8,7 +8,6 @@ namespace TOJAM
 {
     public class LoadingManager : MonoBehaviour
     {
-        [SerializeField] private Animator _loadingAnimator;
         private bool _isLoading = false;
         private bool _authenticated = false;
 
@@ -51,19 +50,10 @@ namespace TOJAM
         public void ShowLoading()
         {
             _isLoading = true;
-
-            if (_loadingAnimator.gameObject.activeInHierarchy)
-            {
-                //_loadingAnimator.SetBool(BoatRockerConstants.LOADING_TRIGGER, true);
-            }
         }
 
         public void HideLoading()
         {
-            if (_loadingAnimator.gameObject.activeInHierarchy)
-            {
-                //_loadingAnimator.SetBool(BoatRockerConstants.LOADING_TRIGGER, false);
-            }
 
             _isLoading = false;
         }
@@ -80,8 +70,6 @@ namespace TOJAM
         {
             ShowLoading();
 
-            yield return new WaitForSeconds(2f);
-
             yield return SceneManager.LoadSceneAsync(sceneName);
 
             yield return new WaitForEndOfFrame();
@@ -94,19 +82,10 @@ namespace TOJAM
         public void ShowReset()
         {
             _isLoading = true;
-
-            if (_loadingAnimator.gameObject.activeInHierarchy)
-            {
-                //_loadingAnimator.SetBool(BoatRockerConstants.RESET_TRIGGER, true);
-            }
         }
 
         public void HideReset()
         {
-            if (_loadingAnimator.gameObject.activeInHierarchy)
-            {
-                //_loadingAnimator.SetBool(BoatRockerConstants.RESET_TRIGGER, false);
-            }
 
             _isLoading = false;
         }

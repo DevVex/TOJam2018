@@ -6,7 +6,6 @@ using TOJAM;
 public class Wind : MonoBehaviour {
 
     public ParticleSystem wind;
-    public PlayerManager playerManager;
 
     private Rigidbody2D targetRigidBody;
     private ParticleSystem.EmissionModule emissionModule;
@@ -18,7 +17,7 @@ public class Wind : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        targetRigidBody = playerManager.FollowTarget.GetComponent<Rigidbody2D>();
+        targetRigidBody = PlayerManager.Instance.FollowTarget.GetComponent<Rigidbody2D>();
         if (targetRigidBody.velocity.x < 6)
         {
             wind.gameObject.SetActive(false);

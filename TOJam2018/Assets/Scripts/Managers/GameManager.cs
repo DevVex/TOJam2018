@@ -67,14 +67,10 @@ namespace TOJAM
                 PlatformManager.Instance.OnSpawnedPlatform -= HandlePlatformSpawned;
         }
 
-        private void HandlePlatformSpawned ()
+        private void HandlePlatformSpawned()
         {
             if (_numPlatforms < Constants.GAME_END_NUM_PLATFORMS)
                 _numPlatforms++;
-            else
-            {
-                SetGameState(Constants.GameState.launching);
-            }
         }
 
         private void SetupLevel()
@@ -94,7 +90,7 @@ namespace TOJAM
             }
 
             //add end of level
-            List<Constants.PlatformDifficulty> temp = new List<Constants.PlatformDifficulty>() { Constants.PlatformDifficulty.none, Constants.PlatformDifficulty.none, Constants.PlatformDifficulty.none, Constants.PlatformDifficulty.none, Constants.PlatformDifficulty.end};
+            List<Constants.PlatformDifficulty> temp = new List<Constants.PlatformDifficulty>() { Constants.PlatformDifficulty.runway, Constants.PlatformDifficulty.none, Constants.PlatformDifficulty.none, Constants.PlatformDifficulty.none, Constants.PlatformDifficulty.end};
             _levelChunks.AddRange(temp);
 
             //add to queue

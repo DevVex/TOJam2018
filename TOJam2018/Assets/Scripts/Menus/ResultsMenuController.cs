@@ -29,6 +29,13 @@ namespace TOJAM
             {
                 Hide();
 
+                if(LoadingManager.Instance == null)
+                {
+                    GameObject go = new GameObject();
+                    go.AddComponent<LoadingManager>();
+                }
+
+
                 LoadingManager.Instance.LoadScene(Constants.SCENE_PRELOADER);
 
                 if (OnReplay != null)
