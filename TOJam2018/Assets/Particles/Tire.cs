@@ -23,6 +23,7 @@ public class Tire : MonoBehaviour {
     public TireEffect[] tireEffects;
     private Dictionary<int, GameObject> effects;
     private TireEffect currentEffect;
+    private bool jumping;
 
     [SerializeField] private Player _playerRef;
 
@@ -31,7 +32,6 @@ public class Tire : MonoBehaviour {
         effects = new Dictionary<int, GameObject>();
 		foreach(TireEffect tireEffect in tireEffects)
         {
-            print(tireEffect.layer);
             effects.Add(LayerMask.NameToLayer(tireEffect.layer), tireEffect.effect);
         }
         SetDefault();
@@ -40,7 +40,17 @@ public class Tire : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (!jumping && !_playerRef.CanJump)
+        {
+            jumping = true;
+            currentEffect.effect.GetComponent<ParticleSystem>().Stop();
+        }
+
+        if(jumping && _playerRef.CanJump)
+        {
+            jumping = false;
+            currentEffect.effect.GetComponent<ParticleSystem>().Play();
+        }
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -49,10 +59,6 @@ public class Tire : MonoBehaviour {
         if (effects.ContainsKey(other.gameObject.layer))
         {
             SetEffect(LayerMask.LayerToName(other.gameObject.layer), effects[other.gameObject.layer]);
-        }
-        else
-        {
-            print("tire effects don't have this layer specified");
         }
     }
 
@@ -75,10 +81,6 @@ public class Tire : MonoBehaviour {
         {
             currentEffect.effect.GetComponent<ParticleSystem>().Stop();
             Destroy(currentEffect.effect, 0.8f);
-        }
-        else
-        {
-            print("nope");
         }
         GameObject newEffect = Instantiate(effect);
         newEffect.GetComponent<FollowTarget>().SetTarget(this.gameObject);
