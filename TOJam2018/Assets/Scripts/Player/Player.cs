@@ -52,6 +52,9 @@ namespace TOJAM
         private bool _canGetHit = true;
         private bool _checkEndGame = false;
 
+        private bool _launched = false;
+        public bool HasLaunched { get { return _launched; } }
+
 
         //player should gain speed while on ground
         //jump based on time click touched for short and high jumps
@@ -126,6 +129,7 @@ namespace TOJAM
 
         private void Launch()
         {
+            _launched = true;
             PlayerManager.Instance.SetFollowBody(true);
 
             //cameraTarget.SetTarget(body.gameObject);
