@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 24192539}
   - component: {fileID: 24192541}
   - component: {fileID: 24192540}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Mountains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 24192538}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1635625, y: -0.9, z: 10.079284}
+  m_LocalPosition: {x: -1.1635625, y: 0.19, z: 10.079284}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1280733079}
@@ -279,10 +279,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1965614948505200, guid: 2a375054634c27e4b863ffcbdda5c238, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a375054634c27e4b863ffcbdda5c238, type: 2}
   m_IsPrefabParent: 0
@@ -349,7 +345,7 @@ GameObject:
   - component: {fileID: 392894450}
   - component: {fileID: 392894452}
   - component: {fileID: 392894451}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: CloudsInBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,7 +795,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1280733079}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +834,7 @@ GameObject:
   - component: {fileID: 1808597195}
   - component: {fileID: 1808597197}
   - component: {fileID: 1808597196}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Houses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +848,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1808597194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1635625, y: -1.4, z: 10.079284}
+  m_LocalPosition: {x: -1.1635625, y: -1.91, z: 10.079284}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1280733079}
@@ -885,15 +881,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spritePool: {fileID: 1808597196}
   _groundSprites:
-  - {fileID: 21300000, guid: 727a7ddbce6bad34bbb0577a9aa7d808, type: 3}
-  - {fileID: 21300000, guid: 04808cafb8a17d7488f33c1848342afd, type: 3}
-  - {fileID: 21300000, guid: db6aed9a36eebf24f80b9fae1a194e9c, type: 3}
+  - {fileID: 21300000, guid: f6adc1fec73349440a9d36d51846cdc5, type: 3}
   _parallaxSpeed: 0.258
-  _xSpacing: 5
+  _xSpacing: 0
   _ySpacing: 0
-  _initialOffset: 2
+  _initialOffset: 0
   _followOrder: 0
-  _variableWidth: 1
+  _variableWidth: 0
   _alwaysMove: 0
   _nonGameMovementSpeed: 0
   _extraPieces: 5
@@ -936,6 +930,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20620436420590288, guid: 9f7cb8fa3dc43864385cc64ad1169e38,
+        type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f7cb8fa3dc43864385cc64ad1169e38, type: 2}
   m_IsPrefabParent: 0
@@ -949,7 +948,7 @@ GameObject:
   - component: {fileID: 1997540423}
   - component: {fileID: 1997540425}
   - component: {fileID: 1997540424}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: CloudsInFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
