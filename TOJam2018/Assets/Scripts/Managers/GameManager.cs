@@ -10,6 +10,8 @@ namespace TOJAM
 
         public System.Action<Constants.GameState> OnGameStateChanged;
 
+        private int _numPlatforms = 0;
+
         private static GameManager _instance;
         public static GameManager Instance
         {
@@ -30,11 +32,35 @@ namespace TOJAM
         private void SetupVariables()
         {
             ObjectPoolManager.Instance.Init();
+
+            _numPlatforms = 0;
         }
 
         private void Start()
         {
+            SubscribeToEvents();
             StartCoroutine(StartGame());
+        }
+
+        private void SubscribeToEvents ()
+        {
+            PlatformManager.Instance.OnSpawnedPlatform += HandlePlatformSpawned;
+        }
+
+        private void UnsubscribeToEvents()
+        {
+            if(PlatformManager.Instance)
+                PlatformManager.Instance.OnSpawnedPlatform -= HandlePlatformSpawned;
+        }
+
+        private void HandlePlatformSpawned ()
+        {
+            if (_numPlatforms < Constants.GAME_END_NUM_PLATFORMS)
+                _numPlatforms++;
+            else
+            {
+                //SetGameState(Constants.GameState.launching);
+            }
         }
 
         private IEnumerator StartGame ()
@@ -55,7 +81,15 @@ namespace TOJAM
             }
         }
 
-
+        public Constants.PlatformDifficulty GetNextPlatformSet()
+        {
+            if (_numPlatforms < Constants.GAME_END_NUM_PLATFORMS)
+            {
+                return Constants.PlatformDifficulty.easy;
+            }
+            else
+                return Constants.PlatformDifficulty.none;
+        }
     }
 }
 

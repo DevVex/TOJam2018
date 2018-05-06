@@ -6,6 +6,8 @@ namespace TOJAM
 {
     public class PlatformManager : MonoBehaviour
     {
+        public System.Action OnSpawnedPlatform;
+
         private static PlatformManager _instance;
         public static PlatformManager Instance
         {
@@ -245,7 +247,13 @@ namespace TOJAM
         private void QueueEnvironmentPiece()
         {
             if (_activePlatforms.Count < _piecesNeeded)
-                _platformsToAdd.Enqueue(ObjectPoolManager.Instance.GetPooledObject(Constants.PlatformDifficulty.easy));
+            {
+                _platformsToAdd.Enqueue(ObjectPoolManager.Instance.GetPooledObject(GameManager.Instance.GetNextPlatformSet()));
+
+                if (OnSpawnedPlatform != null)
+                    OnSpawnedPlatform();
+            }
+               
         }
 
         private void Reset()
