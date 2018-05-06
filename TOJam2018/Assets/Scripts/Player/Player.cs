@@ -223,7 +223,7 @@ namespace TOJAM
             else
             {
                 //getting stuck bug fix
-                _cartRigidbody.AddForce((Vector2.up * 20f), ForceMode2D.Force);
+                _cartRigidbody.AddForce((Vector2.up * 200f), ForceMode2D.Force);
             }
         }
 

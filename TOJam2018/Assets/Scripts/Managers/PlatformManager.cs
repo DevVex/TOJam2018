@@ -96,7 +96,7 @@ namespace TOJAM
 
         private void HandleGameStateChanged(Constants.GameState state)
         {
-            if (state == Constants.GameState.game)
+            if (state == Constants.GameState.menu)
                 SetupEnvironment();
         }
 

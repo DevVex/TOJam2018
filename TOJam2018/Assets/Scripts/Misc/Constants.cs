@@ -12,6 +12,10 @@ namespace TOJAM
         public enum ObstacleType { none, rockSmall, rockMed, rockLarge, trafficCone, oil, goat, car, barrier}
         public enum MenuType { none, main, results}
 
+        //SCENES
+        public const string SCENE_GAMEPLAY = "Gameplay";
+        public const string SCENE_PRELOADER = "Preloader";
+
         //GAMEPLAY VARIABLES
         public const float PLAYER_BASE_SPEED = 0f;
         public const int GAME_END_NUM_PLATFORMS = 100;

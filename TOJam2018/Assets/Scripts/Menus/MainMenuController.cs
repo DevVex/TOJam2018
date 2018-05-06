@@ -10,8 +10,6 @@ namespace TOJAM
 
         [SerializeField] protected Button _playButton;
 
-        private bool _showDailyReward = false;
-
         public System.Action OnPlay;
 
         new protected void Awake()
@@ -30,6 +28,8 @@ namespace TOJAM
         {
             if (_buttonLock == false)
             {
+                Hide();
+
                 if (OnPlay != null)
                     OnPlay.Invoke();    
             }

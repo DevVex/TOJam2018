@@ -7,6 +7,7 @@ namespace TOJAM
     public class MenuManager : MonoBehaviour
     {       
         [SerializeField] private MainMenuController _mainMenuController;
+        [SerializeField] private ResultsMenuController _resultsController;
 
         private MenuBase _currentMenu;
         private Stack<Constants.MenuType> _previousMenus = new Stack<Constants.MenuType>();
@@ -88,12 +89,12 @@ namespace TOJAM
 
         private void ShowResultsMenu ()
         {
-//            _currentMenu = _resultsMenuController;
-//
-//            _currentMenu.Show();
+            _currentMenu = _resultsController;
+
+            _currentMenu.Show();
         }
 
-       
+
         private void HideCurrent ()
         {
             if (_currentMenu != null)
