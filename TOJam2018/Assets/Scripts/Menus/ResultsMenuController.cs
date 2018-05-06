@@ -9,6 +9,10 @@ namespace TOJAM
     {
         [SerializeField] protected Button _replayButton;
 
+        private float _launchDistance;
+        private string _resultsPrefix = "You launched your boi ";
+        private string _resultsSuffix = " cool meters! RADICAL! ";
+
         public System.Action OnReplay;
 
         new protected void Awake()
@@ -21,6 +25,13 @@ namespace TOJAM
         protected void OnDestroy()
         {
             _replayButton.onClick.RemoveListener(OnPlayClicked);
+        }
+
+        override public void Show()
+        {
+            _launchDistance = PlayerManager.Instance.Player.DistanceCovered;
+
+            base.Show();
         }
 
         public void OnPlayClicked()

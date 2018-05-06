@@ -17,6 +17,7 @@ namespace TOJAM
         private SpriteRenderer[] _playerSprites;
 
         public bool MovingForward { get { return _cartRigidbody.velocity.x > 0f; } }
+        public float DistanceCovered { get { return _personBody.transform.position.x - _launchStart; } }
 
         //speed
         private float _speed = 1f;
@@ -38,6 +39,11 @@ namespace TOJAM
         private float _hitTime = 1f;
         private float _hitTimeBase = 1f;
         private float _flashSpeed = 10f;
+
+        //launch 
+        private float _maxLaunchForce = 2000f;
+
+        private float _launchStart = 0f;
 
         private bool _canJump = true;
         public bool CanJump {  get { return _canJump; } }
@@ -128,7 +134,8 @@ namespace TOJAM
                 rigidBody.isKinematic = false;
             }
 
-            _personBody.AddForce(new Vector2(50.0f, 20.0f) * 1000.0f);
+            float launchPower = (_speed / _maxSpeed) * _maxLaunchForce; 
+            _personBody.AddForce(new Vector2(50.0f, 20.0f) * launchPower);
 
             StartCoroutine(CheckForEndGame());
         }
