@@ -37,6 +37,7 @@ namespace TOJAM
         private float _flashSpeed = 10f;
 
         private bool _canJump = true;
+        public bool CanJump {  get { return _canJump; } }
         private bool _increaseJump = false;
 
         private bool _canGetHit = true;
