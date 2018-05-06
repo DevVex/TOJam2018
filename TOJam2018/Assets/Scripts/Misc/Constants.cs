@@ -18,7 +18,7 @@ namespace TOJAM
 
         //GAMEPLAY VARIABLES
         public const float PLAYER_BASE_SPEED = 0f;
-        public const int GAME_END_NUM_PLATFORMS = 150;
+        public const int GAME_END_NUM_PLATFORMS = 100;
 
         //TAGS
         public const string TAG_PLAYER_CART = "PlayerCart";
@@ -46,7 +46,7 @@ namespace TOJAM
                 case ObstacleType.none:
                     return 0f;
                 case ObstacleType.oil:
-                    return 15f;
+                    return 10f;
                 case ObstacleType.rockLarge:
                     return -15f;
                 case ObstacleType.rockMed:
