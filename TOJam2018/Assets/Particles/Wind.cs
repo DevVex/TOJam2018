@@ -5,20 +5,20 @@ using UnityEngine;
 public class Wind : MonoBehaviour {
 
     public ParticleSystem wind;
-    public GameObject target;
+    public FollowTarget cameraTarget;
 
     private Rigidbody2D targetRigidBody;
     private ParticleSystem.EmissionModule emissionModule;
 
     // Use this for initialization
     void Start () {
-        targetRigidBody = target.GetComponent<Rigidbody2D>();
         emissionModule = wind.emission;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(targetRigidBody.velocity.x < 6)
+        targetRigidBody = cameraTarget.target.GetComponent<Rigidbody2D>();
+        if (targetRigidBody.velocity.x < 6)
         {
             wind.gameObject.SetActive(false);
         }

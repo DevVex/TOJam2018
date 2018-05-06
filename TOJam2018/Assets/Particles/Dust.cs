@@ -17,7 +17,7 @@ public class Dust : MonoBehaviour {
         ps = this.GetComponent<ParticleSystem>();
         emissionModule = ps.emission;
         mainModule = ps.main;
-        target = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.FindGameObjectWithTag("PlayerCart");
         if (target != null)
         {
             rigidBody2d = target.GetComponent<Rigidbody2D>();

@@ -13,7 +13,7 @@ public class Oil : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ps = this.GetComponent<ParticleSystem>();
-        target = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.FindGameObjectWithTag("PlayerCart");
         if(target != null)
         {
             rigidBody2d = target.GetComponent<Rigidbody2D>();
