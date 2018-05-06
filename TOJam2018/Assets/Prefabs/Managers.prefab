@@ -300,6 +300,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9adf00ac17e8a46af2f1daabace50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chunks:
+  - Weight: 50
+    Chunk: 010000000000000000000000
+  - Weight: 50
+    Chunk: 01000000000000000100000000000000
 --- !u!114 &114940148996804618
 MonoBehaviour:
   m_ObjectHideFlags: 1

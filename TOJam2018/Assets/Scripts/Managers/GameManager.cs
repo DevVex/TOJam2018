@@ -1,16 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace TOJAM
 {
+    [System.Serializable]
+    public class DifficultyChunk
+    {
+        public int Weight;
+        [SerializeField]
+        public List<Constants.PlatformDifficulty> Chunk = new List<Constants.PlatformDifficulty>();
+    }
+
     public class GameManager : MonoBehaviour
     {
-        public Constants.GameState State { get; protected set; }
+        [SerializeField] protected DifficultyChunk[] _chunks;
 
+        public Constants.GameState State { get; protected set; }
         public System.Action<Constants.GameState> OnGameStateChanged;
 
         private int _numPlatforms = 0;
+        private List<Constants.PlatformDifficulty> _levelChunks = new List<Constants.PlatformDifficulty>();
+        private Queue<Constants.PlatformDifficulty> _levelChunkQueue = new Queue<Constants.PlatformDifficulty>();
 
         private static GameManager _instance;
         public static GameManager Instance
@@ -39,6 +51,8 @@ namespace TOJAM
         private void Start()
         {
             SubscribeToEvents();
+            SetupLevel();
+
             StartCoroutine(StartGame());
         }
 
@@ -63,6 +77,26 @@ namespace TOJAM
             }
         }
 
+        private void SetupLevel()
+        {
+            //added to weighted Dict
+            Dictionary<DifficultyChunk, int> weightedChunks = new Dictionary<DifficultyChunk, int>();
+            
+            foreach(DifficultyChunk chunk in _chunks)
+            {
+                weightedChunks.Add(chunk, chunk.Weight);
+            }
+
+            //generate level
+            while(_levelChunks.Count < Constants.GAME_END_NUM_PLATFORMS)
+            {
+                _levelChunks.AddRange(WeightedRandomizer.From(weightedChunks).TakeOne().Chunk);
+            }
+
+            //add to queue
+            _levelChunkQueue = new Queue<Constants.PlatformDifficulty>(_levelChunks);
+        }
+
         private IEnumerator StartGame ()
         {
             yield return new WaitForEndOfFrame();
@@ -83,9 +117,9 @@ namespace TOJAM
 
         public Constants.PlatformDifficulty GetNextPlatformSet()
         {
-            if (_numPlatforms < Constants.GAME_END_NUM_PLATFORMS)
+            if (_numPlatforms < Constants.GAME_END_NUM_PLATFORMS && _levelChunkQueue.Count > 0)
             {
-                return Constants.PlatformDifficulty.easy;
+                return _levelChunkQueue.Dequeue();
             }
             else
                 return Constants.PlatformDifficulty.none;
