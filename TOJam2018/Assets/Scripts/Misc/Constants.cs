@@ -22,6 +22,9 @@ namespace TOJAM
         public const string TAG_GROUND = "Ground";
         public const string TAG_OBSTACLE = "Obstacle";
 
+        //MENU
+        public const string ANIMATOR_SHOW_TRIGGER = "show";
+
 
         public static float GetSpeedForObstacle (ObstacleType type)
         {

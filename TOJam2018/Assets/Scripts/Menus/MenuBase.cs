@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace TOJAM
 {
+
     public class MenuBase : MonoBehaviour
     {
         [SerializeField] protected Animator _animator;
@@ -11,11 +12,35 @@ namespace TOJAM
 
         public Constants.MenuType Type { get { return _type; } }
         
-        //_BW TODO left off here
-        //need to link this to main menu and menu manager
-        //enable this menu on start
-        //tap to start
-        //then make results menu and store top scores?
+
+        protected bool _buttonLock = false;
+
+        virtual protected void Awake()
+        {
+            Hide();
+        }
+
+        virtual public void Show()
+        {
+            if(_animator.gameObject.activeInHierarchy)
+            {
+                _buttonLock = false;
+
+                _animator.SetBool(Constants.ANIMATOR_SHOW_TRIGGER, true);
+                //_animator.SetBool(BoatRockerConstants.STOP_TRIGGER, false);
+            }
+        }
+
+        virtual public void Hide()
+        {
+            if(_animator.gameObject.activeInHierarchy)
+            {
+                _buttonLock = true;
+
+                _animator.SetBool(Constants.ANIMATOR_SHOW_TRIGGER, false);
+               // _animator.SetBool(BoatRockerConstants.STOP_TRIGGER, true);
+            }
+        }
     }
 }
 

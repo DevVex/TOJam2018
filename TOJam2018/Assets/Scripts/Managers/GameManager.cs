@@ -101,7 +101,7 @@ namespace TOJAM
         {
             yield return new WaitForEndOfFrame();
 
-            SetGameState(Constants.GameState.game);
+            SetGameState(Constants.GameState.menu);
         }
 
         public void SetGameState(Constants.GameState state)
