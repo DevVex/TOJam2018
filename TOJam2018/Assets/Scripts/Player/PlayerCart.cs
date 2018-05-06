@@ -17,7 +17,7 @@ namespace TOJAM
                 if(obstacle.BeenHit == false)
                 {
                     obstacle.HitPlayer();
-                    _playerRef.ChangeSpeed(Constants.GetSpeedForObstacle(obstacle.Type));
+                    _playerRef.ChangeSpeed(obstacle.Type);
                 }
                 
             }

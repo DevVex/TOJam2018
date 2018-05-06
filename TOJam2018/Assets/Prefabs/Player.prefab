@@ -401,6 +401,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cartRigidbody: {fileID: 50053519995095284}
   _personRigidbody: {fileID: 50365688565484170}
+  _playerSprites:
+  - {fileID: 212196677795510472}
+  - {fileID: 212048444768646634}
 --- !u!114 &114134826463156994
 MonoBehaviour:
   m_ObjectHideFlags: 1

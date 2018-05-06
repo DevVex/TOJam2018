@@ -245,7 +245,7 @@ namespace TOJAM
         private void QueueEnvironmentPiece()
         {
             if (_activePlatforms.Count < _piecesNeeded)
-                _platformsToAdd.Enqueue(ObjectPoolManager.Instance.GetPooledObject(Constants.PlatformDifficulty.none));
+                _platformsToAdd.Enqueue(ObjectPoolManager.Instance.GetPooledObject(Constants.PlatformDifficulty.easy));
         }
 
         private void Reset()
