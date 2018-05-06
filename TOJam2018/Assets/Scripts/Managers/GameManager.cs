@@ -73,7 +73,7 @@ namespace TOJAM
                 _numPlatforms++;
             else
             {
-                //SetGameState(Constants.GameState.launching);
+                SetGameState(Constants.GameState.launching);
             }
         }
 
@@ -92,6 +92,10 @@ namespace TOJAM
             {
                 _levelChunks.AddRange(WeightedRandomizer.From(weightedChunks).TakeOne().Chunk);
             }
+
+            //add end of level
+            List<Constants.PlatformDifficulty> temp = new List<Constants.PlatformDifficulty>() { Constants.PlatformDifficulty.none, Constants.PlatformDifficulty.none, Constants.PlatformDifficulty.none, Constants.PlatformDifficulty.none, Constants.PlatformDifficulty.end};
+            _levelChunks.AddRange(temp);
 
             //add to queue
             _levelChunkQueue = new Queue<Constants.PlatformDifficulty>(_levelChunks);
@@ -117,7 +121,7 @@ namespace TOJAM
 
         public Constants.PlatformDifficulty GetNextPlatformSet()
         {
-            if (_numPlatforms < Constants.GAME_END_NUM_PLATFORMS && _levelChunkQueue.Count > 0)
+            if (_levelChunkQueue.Count > 0)
             {
                 return _levelChunkQueue.Dequeue();
             }

@@ -52,7 +52,7 @@ public class Tire : MonoBehaviour {
         }
         else
         {
-            print("tire effects don't have this layer specified");
+            //print("tire effects don't have this layer specified");
         }
     }
 

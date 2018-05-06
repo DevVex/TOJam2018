@@ -18,7 +18,7 @@ namespace TOJAM
 
         //GAMEPLAY VARIABLES
         public const float PLAYER_BASE_SPEED = 0f;
-        public const int GAME_END_NUM_PLATFORMS = 100;
+        public const int GAME_END_NUM_PLATFORMS = 10;
 
         //TAGS
         public const string TAG_PLAYER_CART = "PlayerCart";

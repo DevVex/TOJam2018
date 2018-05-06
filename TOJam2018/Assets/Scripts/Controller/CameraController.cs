@@ -90,7 +90,7 @@ namespace TOJAM
         #region LOGIC
         private void Update()
         {
-            if (GameManager.Instance.State == Constants.GameState.game)
+            if (GameManager.Instance.State == Constants.GameState.game || GameManager.Instance.State == Constants.GameState.launching)
             {
                 if (PlayerManager.Instance)
                     _ballPosition = PlayerManager.Instance.FollowTarget.position;
@@ -99,7 +99,7 @@ namespace TOJAM
 
         private void LateUpdate()
         {
-            if (GameManager.Instance.State == Constants.GameState.game)
+            if (GameManager.Instance.State == Constants.GameState.game || GameManager.Instance.State == Constants.GameState.launching)
             {
                 if (PlayerManager.Instance)
                 {

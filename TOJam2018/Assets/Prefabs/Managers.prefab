@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4886200469384632}
   - component: {fileID: 114713510078455810}
   m_Layer: 0
-  m_Name: EmptyPools
+  m_Name: EndPools
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,6 +38,22 @@ GameObject:
   - component: {fileID: 114594040810092970}
   m_Layer: 0
   m_Name: PlatformManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1483503159049774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4070761180059042}
+  - component: {fileID: 114246153561137606}
+  m_Layer: 0
+  m_Name: EmptyPools
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,6 +99,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4070761180059042
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483503159049774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4190895569310320}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4190895569310320
 Transform:
   m_ObjectHideFlags: 1
@@ -93,8 +122,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4886200469384632}
+  - {fileID: 4070761180059042}
   - {fileID: 4240766454340300}
+  - {fileID: 4886200469384632}
   - {fileID: 4361676206862996}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -123,7 +153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4190895569310320}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4886200469384632
 Transform:
@@ -131,12 +161,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1061037654396594}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4190895569310320}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114118395813447884
 MonoBehaviour:
@@ -152,6 +182,20 @@ MonoBehaviour:
   _pooledObjectPrefab: {fileID: 114979809896758568, guid: b5cc4a0de8364cc4fb61840dcd19b91b,
     type: 2}
   _numberToPool: 5
+--- !u!114 &114246153561137606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483503159049774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ea1f63251851c41bda11223ab63ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pooledObjectPrefab: {fileID: 114889057848253646, guid: 7445c5ff6ec0c884aaf82f058f43a9fa,
+    type: 2}
+  _numberToPool: 20
 --- !u!114 &114249699814907520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,9 +282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ea1f63251851c41bda11223ab63ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pooledObjectPrefab: {fileID: 114889057848253646, guid: 7445c5ff6ec0c884aaf82f058f43a9fa,
+  _pooledObjectPrefab: {fileID: 114388297872225366, guid: 29562131f7d416d42843cf4dd599cb9a,
     type: 2}
-  _numberToPool: 20
+  _numberToPool: 2
 --- !u!114 &114729661291690692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,7 +313,7 @@ MonoBehaviour:
   _pools:
   - Difficulty: 0
     PlatformPools:
-    - {fileID: 114713510078455810}
+    - {fileID: 114246153561137606}
   - Difficulty: 1
     PlatformPools:
     - {fileID: 114118395813447884}
@@ -278,6 +322,9 @@ MonoBehaviour:
     - {fileID: 114442311433853582}
     - {fileID: 114940148996804618}
     - {fileID: 114298573752982542}
+  - Difficulty: 5
+    PlatformPools:
+    - {fileID: 114713510078455810}
 --- !u!114 &114822518430296690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _followTarget: {fileID: 0}
+  _launchFollowTarget: {fileID: 0}
 --- !u!114 &114865825686701154
 MonoBehaviour:
   m_ObjectHideFlags: 1

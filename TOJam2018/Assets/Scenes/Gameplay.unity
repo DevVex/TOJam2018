@@ -328,6 +328,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &683345826 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4132181523199344, guid: 75190701619559d40adf0438dbe5b9d0,
+    type: 2}
+  m_PrefabInternal: {fileID: 343947430}
 --- !u!1 &742975512
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +618,11 @@ Prefab:
       propertyPath: _followTarget
       value: 
       objectReference: {fileID: 343947434}
+    - target: {fileID: 114822518430296690, guid: b2c9eb873b1400a4399ecf2477b82ec9,
+        type: 2}
+      propertyPath: _launchFollowTarget
+      value: 
+      objectReference: {fileID: 683345826}
     - target: {fileID: 114249699814907520, guid: b2c9eb873b1400a4399ecf2477b82ec9,
         type: 2}
       propertyPath: _mainMenuController
