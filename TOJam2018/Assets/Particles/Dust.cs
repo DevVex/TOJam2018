@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TOJAM;
 
 public class Dust : MonoBehaviour {
 
@@ -20,7 +21,7 @@ public class Dust : MonoBehaviour {
         ps = this.GetComponent<ParticleSystem>();
         emissionModule = ps.emission;
         mainModule = ps.main;
-        target = GameObject.FindGameObjectWithTag("PlayerCart");
+        target = PlayerManager.Instance.FollowTarget.gameObject;
         if (target != null)
         {
             rigidBody2d = target.GetComponent<Rigidbody2D>();
