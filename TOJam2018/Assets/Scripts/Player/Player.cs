@@ -130,6 +130,7 @@ namespace TOJAM
         private void Launch()
         {
             _launched = true;
+            _launchStart = _personBody.transform.position.x;
             PlayerManager.Instance.SetFollowBody(true);
 
             //cameraTarget.SetTarget(body.gameObject);

@@ -40,17 +40,17 @@ namespace TOJAM
             float best = CheckBest(_launchDistance);
 
             //your score text
-            _finalText.text = _resultsPrefix + _launchDistance.ToString("F1") + _resultsSuffix;
+            _finalText.text =  _launchDistance.ToString("F1");
 
             //best text
             if(_launchDistance <= best)
             {
-                _bestText.text = _failedBest + best.ToString("F1") + _failedBestEnd;
+                _bestText.text = best.ToString("F1");
             }
             else
             {
                 PlayerPrefs.SetFloat(Constants.PLAYER_PREFS_BEST, _launchDistance);
-                _bestText.text = _newBest;
+                _bestText.text = _launchDistance.ToString("F1"); 
             }
 
             base.Show();
