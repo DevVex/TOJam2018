@@ -28,7 +28,7 @@ namespace TOJAM
         private float _above; //amount to see above target
         private float _minView; //lower limit of world unity seen by camera
 
-        private float _ballCamDiff = 0.23f;
+        private float _ballCamDiff = 0.4f;
         private float _maxBallCamDiff = 0.40f;
 
         private Vector2 _offset = Vector2.zero;

@@ -10,7 +10,17 @@ namespace TOJAM
 
         virtual protected void OnTriggerEnter2D (Collider2D collider)
         {
+            if (collider.gameObject.tag == Constants.TAG_OBSTACLE)
+            {
+                ObstacleBase obstacle = collider.gameObject.GetComponent<ObstacleBase>();
 
+                if(obstacle.BeenHit == false)
+                {
+                    obstacle.HitPlayer();
+                    _playerRef.ChangeSpeed(Constants.GetSpeedForObstacle(obstacle.Type));
+                }
+                
+            }
         }
 
         virtual protected void OnCollisionEnter2D(Collision2D collision)

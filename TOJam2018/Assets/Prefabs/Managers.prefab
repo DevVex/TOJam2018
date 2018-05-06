@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1964376977204398}
   m_IsPrefabParent: 1
+--- !u!1 &1061037654396594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4886200469384632}
+  - component: {fileID: 114713510078455810}
+  m_Layer: 0
+  m_Name: EmptyPools
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1160305023681122
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,8 +52,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4240766454340300}
   - component: {fileID: 114118395813447884}
+  - component: {fileID: 114446430008277780}
+  - component: {fileID: 114729661291690692}
+  - component: {fileID: 114442311433853582}
+  - component: {fileID: 114940148996804618}
+  - component: {fileID: 114298573752982542}
   m_Layer: 0
-  m_Name: Pools
+  m_Name: EasyPools
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,6 +93,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4886200469384632}
   - {fileID: 4240766454340300}
   - {fileID: 4361676206862996}
   m_Father: {fileID: 0}
@@ -83,12 +105,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1854517255591694}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4190895569310320}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4361676206862996
 Transform:
@@ -97,11 +119,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160305023681122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.29, z: 0}
+  m_LocalPosition: {x: 0, y: -4.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4190895569310320}
-  m_RootOrder: 1
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4886200469384632
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061037654396594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4190895569310320}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114118395813447884
 MonoBehaviour:
@@ -114,9 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ea1f63251851c41bda11223ab63ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pooledObjectPrefab: {fileID: 114332441629104082, guid: 7445c5ff6ec0c884aaf82f058f43a9fa,
+  _pooledObjectPrefab: {fileID: 114979809896758568, guid: b5cc4a0de8364cc4fb61840dcd19b91b,
     type: 2}
-  _numberToPool: 20
+  _numberToPool: 5
 --- !u!114 &114249699814907520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +163,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bc6dfdf2bd8e24695c529de847d8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114298573752982542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854517255591694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ea1f63251851c41bda11223ab63ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pooledObjectPrefab: {fileID: 114763651931723490, guid: 99f0cfd45c8a22341bdcf09c8ee9784f,
+    type: 2}
+  _numberToPool: 5
+--- !u!114 &114442311433853582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854517255591694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ea1f63251851c41bda11223ab63ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pooledObjectPrefab: {fileID: 114071219005449922, guid: a4f968410ce941a409b443650709b9cf,
+    type: 2}
+  _numberToPool: 5
+--- !u!114 &114446430008277780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854517255591694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ea1f63251851c41bda11223ab63ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pooledObjectPrefab: {fileID: 114956064624893442, guid: a3d1dda2cc3ccbf498a9a8c678b9ad0a,
+    type: 2}
+  _numberToPool: 5
 --- !u!114 &114594040810092970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,6 +225,34 @@ MonoBehaviour:
   _alwaysMove: 0
   _nonGameMovementSpeed: 0
   _extraPieces: 5
+--- !u!114 &114713510078455810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061037654396594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ea1f63251851c41bda11223ab63ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pooledObjectPrefab: {fileID: 114889057848253646, guid: 7445c5ff6ec0c884aaf82f058f43a9fa,
+    type: 2}
+  _numberToPool: 20
+--- !u!114 &114729661291690692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854517255591694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ea1f63251851c41bda11223ab63ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pooledObjectPrefab: {fileID: 114941931318203852, guid: 2b7b9b4c97a22674fbbacf74cc05e1e0,
+    type: 2}
+  _numberToPool: 5
 --- !u!114 &114813185872514564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,7 +267,15 @@ MonoBehaviour:
   _pools:
   - Difficulty: 0
     PlatformPools:
+    - {fileID: 114713510078455810}
+  - Difficulty: 1
+    PlatformPools:
     - {fileID: 114118395813447884}
+    - {fileID: 114446430008277780}
+    - {fileID: 114729661291690692}
+    - {fileID: 114442311433853582}
+    - {fileID: 114940148996804618}
+    - {fileID: 114298573752982542}
 --- !u!114 &114822518430296690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,3 +300,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9adf00ac17e8a46af2f1daabace50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114940148996804618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854517255591694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ea1f63251851c41bda11223ab63ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pooledObjectPrefab: {fileID: 114341660902115808, guid: a1ac2eb9e2e15724b871ebfe532b7db8,
+    type: 2}
+  _numberToPool: 5

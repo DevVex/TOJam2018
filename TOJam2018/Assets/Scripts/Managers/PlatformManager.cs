@@ -40,7 +40,7 @@ namespace TOJAM
 
         private int _groundTracker = 0;
 
-        private float _xPosSeamOffset = 0.009f;
+        private float _xPosSeamOffset = 0.001f;
 
         private List<PlatformBase> _activePlatforms = new List<PlatformBase>();
         private List<PlatformBase> _activePlatformsClone = new List<PlatformBase>();

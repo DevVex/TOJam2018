@@ -14,8 +14,8 @@ namespace TOJAM
         public bool MovingForward { get { return _cartRigidbody.velocity.x > 0f; } }
 
         //speed
-        private float _speed = 10f;
-        private float _minSpeed = 10f;
+        private float _speed = 1f;
+        private float _minSpeed = 1f;
         private float _maxSpeed = 100f;
         private float _speedGain = 0.1f;
 
@@ -50,6 +50,7 @@ namespace TOJAM
         private void SetupVariables ()
         {
             _cartRigidbody.bodyType = RigidbodyType2D.Kinematic;
+            _speed = _minSpeed;
         }
 
         private void SubscribeToEvents ()
@@ -106,9 +107,9 @@ namespace TOJAM
             _jumpTime = _jumpTimeBase;
         }
 
-        private void ChangeSpeed(float speedChange)
+        public void ChangeSpeed(float speedChange)
         {
-            
+            _speed += speedChange;
         }
 
         private void UpdateSpeed()
@@ -144,7 +145,8 @@ namespace TOJAM
             float velY = _cartRigidbody.velocity.y;
 
             //temp update speed
-            velX = Mathf.Clamp(_speed, _minSpeed, _maxSpeed);
+            _speed = Mathf.Clamp(_speed, _minSpeed, _maxSpeed);
+            velX = _speed;
 
             if (Input.GetMouseButtonDown(0))
             {                
