@@ -625,7 +625,7 @@ PlayerSettings:
     1: CROSS_PLATFORM_INPUT;TMP_PRESENT;CT_TR
     2: CROSS_PLATFORM_INPUT
     4: CROSS_PLATFORM_INPUT;MOBILE_INPUT
-    7: MOBILE_INPUT
+    7: MOBILE_INPUT;CT_TR
     15: CROSS_PLATFORM_INPUT;MOBILE_INPUT
     16: CROSS_PLATFORM_INPUT;MOBILE_INPUT
   platformArchitecture:
@@ -755,7 +755,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
   cloudProjectId: 76deda0a-c82a-4db9-a7d5-e31ec7d69b5b
-  projectName: CorgiEngine
+  projectName: TOJam2018
   organizationId: bryan-winters-133622
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
