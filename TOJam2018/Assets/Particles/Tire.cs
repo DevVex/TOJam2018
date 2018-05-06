@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TOJAM;
 
 [System.Serializable]
 public class TireEffect
@@ -22,6 +23,8 @@ public class Tire : MonoBehaviour {
     public TireEffect[] tireEffects;
     private Dictionary<int, GameObject> effects;
     private TireEffect currentEffect;
+
+    [SerializeField] private Player _playerRef;
 
 	// Use this for initialization
 	void Start () {
