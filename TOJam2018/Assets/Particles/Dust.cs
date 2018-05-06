@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Dust : MonoBehaviour {
 
+    public float lowSpeed;
+    public float dampen;
+
     private ParticleSystem ps;
     private GameObject target;
 
@@ -27,7 +30,7 @@ public class Dust : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if(rigidBody2d.velocity.x < 6)
+        if(rigidBody2d.velocity.x < lowSpeed)
         {
             ps.Stop();
         }
@@ -37,8 +40,8 @@ public class Dust : MonoBehaviour {
             {
                 ps.Play();
             }
-            emissionModule.rateOverTime = rigidBody2d.velocity.x;
-            mainModule.startSizeMultiplier = rigidBody2d.velocity.x / 8;
+            emissionModule.rateOverTime = rigidBody2d.velocity.x / dampen;
+            mainModule.startSizeMultiplier = rigidBody2d.velocity.x / 8.0f / dampen;
         }
     }
 }

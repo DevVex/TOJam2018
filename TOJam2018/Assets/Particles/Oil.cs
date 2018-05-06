@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Oil : MonoBehaviour {
 
+    public float lowSpeed;
+    public float dampen;
+
     private ParticleSystem ps;
     private GameObject target;
 
@@ -22,7 +25,7 @@ public class Oil : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (rigidBody2d.velocity.x < 6)
+        if (rigidBody2d.velocity.x < lowSpeed)
         {
             ps.Stop();
             turnedOff = true;
@@ -34,7 +37,7 @@ public class Oil : MonoBehaviour {
                 ps.Play();
                 turnedOff = false;
             }
-            ps.startSpeed = rigidBody2d.velocity.x;
+            ps.startSpeed = rigidBody2d.velocity.x / dampen;
         }
     }
 }
