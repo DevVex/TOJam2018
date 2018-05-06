@@ -44,6 +44,7 @@ namespace TOJAM
         private bool _increaseJump = false;
 
         private bool _canGetHit = true;
+        private bool _checkEndGame = false;
 
 
         //player should gain speed while on ground
@@ -117,8 +118,9 @@ namespace TOJAM
             }
         }
 
-        public void Launch()
+        private void Launch()
         {
+            PlayerManager.Instance.SetFollowBody(true);
 
             //cameraTarget.SetTarget(body.gameObject);
             foreach (Rigidbody2D rigidBody in _bodyParts)
@@ -128,7 +130,14 @@ namespace TOJAM
 
             _personBody.AddForce(new Vector2(50.0f, 20.0f) * 1000.0f);
 
+            StartCoroutine(CheckForEndGame());
+        }
 
+        private IEnumerator CheckForEndGame ()
+        {
+            yield return new WaitForSeconds(1f);
+
+            _checkEndGame = true;
         }
 
         private float Jump()
@@ -153,11 +162,16 @@ namespace TOJAM
 
         public void ChangeSpeed(Constants.ObstacleType type)
         {
+            Debug.Log(type);
             if(type == Constants.ObstacleType.barrier)
             {
                 _cartRigidbody.velocity = Vector3.zero;
                 _cartRigidbody.bodyType = RigidbodyType2D.Kinematic;
                 Launch();
+            }
+            else if (type == Constants.ObstacleType.runway)
+            {
+                GameManager.Instance.SetGameState(Constants.GameState.launching);
             }
             else
             {
@@ -273,6 +287,13 @@ namespace TOJAM
                 _cartRigidbody.velocity = new Vector2(Mathf.Max(_minSpeed, velX), velY);
             }
 
+            if(_checkEndGame == true)
+            {
+                if(_personBody.velocity.x <= 0f)
+                {
+                    GameManager.Instance.SetGameState(Constants.GameState.gameOver);
+                }
+            }
         }
 
         #region COLLISION

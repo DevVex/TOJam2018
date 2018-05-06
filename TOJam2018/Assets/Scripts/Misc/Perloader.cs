@@ -10,11 +10,14 @@ namespace TOJAM
         // Use this for initialization
         void Start()
         {
-            LoadGame();
+            StartCoroutine(LoadGame());
         }
 
-        private void LoadGame()
+        private IEnumerator LoadGame()
         {
+
+            yield return new WaitForSeconds(2f);
+
             LoadingManager.Instance.LoadScene(Constants.SCENE_GAMEPLAY);
         }
 

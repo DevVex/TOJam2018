@@ -8,8 +8,8 @@ namespace TOJAM
     {
         //ENUMS
         public enum GameState { none, menu, game, gameOver, paused, launching}
-        public enum PlatformDifficulty { none, easy, medium, hard, expert, end}
-        public enum ObstacleType { none, rockSmall, rockMed, rockLarge, trafficCone, oil, goat, car, barrier}
+        public enum PlatformDifficulty { none, easy, medium, hard, expert, end, runway}
+        public enum ObstacleType { none, rockSmall, rockMed, rockLarge, trafficCone, oil, goat, car, barrier, runway}
         public enum MenuType { none, main, results}
 
         //SCENES
