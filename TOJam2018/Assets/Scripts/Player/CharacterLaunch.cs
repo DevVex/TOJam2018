@@ -23,7 +23,7 @@ public class CharacterLaunch : MonoBehaviour {
     public void Launch()
     {
 
-        cameraTarget.SetTarget(body.gameObject);
+        //cameraTarget.SetTarget(body.gameObject);
         foreach (Rigidbody2D rigidBody in bodyParts)
         {
             rigidBody.isKinematic = false;

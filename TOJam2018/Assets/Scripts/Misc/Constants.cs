@@ -29,6 +29,9 @@ namespace TOJAM
         //MENU
         public const string ANIMATOR_SHOW_TRIGGER = "show";
 
+        //PLAYER PREFS
+        public const string PLAYER_PREFS_BEST = "Best";
+
 
         public static float GetSpeedForObstacle (ObstacleType type)
         {

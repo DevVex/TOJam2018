@@ -169,7 +169,6 @@ namespace TOJAM
 
         public void ChangeSpeed(Constants.ObstacleType type)
         {
-            Debug.Log(type);
             if(type == Constants.ObstacleType.barrier)
             {
                 _cartRigidbody.velocity = Vector3.zero;
