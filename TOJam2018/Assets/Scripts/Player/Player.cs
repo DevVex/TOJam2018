@@ -9,9 +9,8 @@ namespace TOJAM
         public System.Action OnPlayerReset;
 
         [SerializeField] private Rigidbody2D _cartRigidbody;
-        [SerializeField] private Rigidbody2D _personRigidbody;
 
-        [SerializeField] private SpriteRenderer[] _playerSprites;
+        private SpriteRenderer[] _playerSprites;
 
 
         public bool MovingForward { get { return _cartRigidbody.velocity.x > 0f; } }
@@ -23,11 +22,11 @@ namespace TOJAM
         private float _speedGain = 0.1f;
 
         //jumps
-        private float _jumpForce = 15f;
+        [SerializeField]  private float _jumpForce = 15f;
         private float _jumpStrength = 0f;
 
         private float _minJumpForce = 0f;
-        private float _maxJumpForce = 375f;
+        [SerializeField]  private float _maxJumpForce = 375f;
 
         private float _jumpTime = 0.3f;
         private float _jumpTimeBase = 0.3f;
@@ -62,6 +61,8 @@ namespace TOJAM
         {
             _cartRigidbody.bodyType = RigidbodyType2D.Kinematic;
             _speed = _minSpeed;
+
+            _playerSprites = this.GetComponentsInChildren<SpriteRenderer>();
         }
 
         private void SubscribeToEvents ()
@@ -212,7 +213,7 @@ namespace TOJAM
             }
 
             //update velocity
-            _cartRigidbody.velocity = new Vector2(velX,velY);
+            _cartRigidbody.velocity = new Vector2(Mathf.Max(_minSpeed, velX),velY);
         }
 
         #region COLLISION
@@ -223,7 +224,7 @@ namespace TOJAM
             else
             {
                 //getting stuck bug fix
-                _cartRigidbody.AddForce((Vector2.up * 200f), ForceMode2D.Force);
+                _cartRigidbody.AddForce((Vector2.up * 75f), ForceMode2D.Force);
             }
         }
 

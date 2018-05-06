@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 212180154617745282}
   - component: {fileID: 61462917208261002}
   - component: {fileID: 114982856661543792}
-  m_Layer: 0
+  m_Layer: 26
   m_Name: Oil
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
