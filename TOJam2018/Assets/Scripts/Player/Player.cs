@@ -10,8 +10,11 @@ namespace TOJAM
 
         [SerializeField] private Rigidbody2D _cartRigidbody;
 
-        private SpriteRenderer[] _playerSprites;
+        [SerializeField] private GameObject _bodyParent;
+        [SerializeField] private Rigidbody2D _personBody;
+        private Rigidbody2D[] _bodyParts;
 
+        private SpriteRenderer[] _playerSprites;
 
         public bool MovingForward { get { return _cartRigidbody.velocity.x > 0f; } }
 
@@ -64,6 +67,17 @@ namespace TOJAM
             _speed = _minSpeed;
 
             _playerSprites = this.GetComponentsInChildren<SpriteRenderer>();
+            SetupBody();
+        }
+
+        private void SetupBody()
+        {
+            _bodyParts = _bodyParent.transform.GetComponentsInChildren<Rigidbody2D>();
+            
+            foreach (Rigidbody2D rigidBody in _bodyParts)
+            {
+                rigidBody.isKinematic = true;
+            }
         }
 
         private void SubscribeToEvents ()
@@ -95,8 +109,25 @@ namespace TOJAM
                 UpdateJump();
                 UpdateControls();
                 UpdateSprites();
-                
-            }           
+
+            }
+            else if (GameManager.Instance.State == Constants.GameState.launching)
+            {
+                UpdatePreLaunch();
+            }
+        }
+
+        public void Launch()
+        {
+
+            //cameraTarget.SetTarget(body.gameObject);
+            foreach (Rigidbody2D rigidBody in _bodyParts)
+            {
+                rigidBody.isKinematic = false;
+            }
+
+            _personBody.AddForce(new Vector2(50.0f, 20.0f) * 1000.0f);
+
 
         }
 
@@ -122,16 +153,26 @@ namespace TOJAM
 
         public void ChangeSpeed(Constants.ObstacleType type)
         {
-            if(_canGetHit == true)
+            if(type == Constants.ObstacleType.barrier)
             {
-                _speed += Constants.GetSpeedForObstacle(type);
-
-                if (type != Constants.ObstacleType.oil)
+                _cartRigidbody.velocity = Vector3.zero;
+                _cartRigidbody.bodyType = RigidbodyType2D.Kinematic;
+                Launch();
+            }
+            else
+            {
+                if (_canGetHit == true)
                 {
-                    _hitTime = _hitTimeBase;
-                    _canGetHit = false;
+                    _speed += Constants.GetSpeedForObstacle(type);
+
+                    if (type != Constants.ObstacleType.oil)
+                    {
+                        _hitTime = _hitTimeBase;
+                        _canGetHit = false;
+                    }
                 }
-            }           
+            }
+                      
                 
         }
 
@@ -199,7 +240,7 @@ namespace TOJAM
             velX = _speed;
 
             if (Input.GetMouseButtonDown(0))
-            {                
+            {
                 velY = Jump();
             }
 
@@ -215,6 +256,23 @@ namespace TOJAM
 
             //update velocity
             _cartRigidbody.velocity = new Vector2(Mathf.Max(_minSpeed, velX),velY);
+        }
+
+        private void UpdatePreLaunch ()
+        {
+            if(_cartRigidbody.bodyType != RigidbodyType2D.Kinematic)
+            {
+                float velX = _cartRigidbody.velocity.x;
+                float velY = _cartRigidbody.velocity.y;
+
+                //temp update speed
+                _speed = Mathf.Clamp(_speed, _minSpeed, _maxSpeed);
+                velX = _speed;
+
+                //update velocity
+                _cartRigidbody.velocity = new Vector2(Mathf.Max(_minSpeed, velX), velY);
+            }
+
         }
 
         #region COLLISION

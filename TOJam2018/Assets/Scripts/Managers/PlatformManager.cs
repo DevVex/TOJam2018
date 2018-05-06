@@ -102,7 +102,7 @@ namespace TOJAM
 
         private void Move(float cameraDelta)
         {
-            if (GameManager.Instance.State == Constants.GameState.game)
+            if (GameManager.Instance.State == Constants.GameState.game || GameManager.Instance.State == Constants.GameState.launching)
             {
                 //update lerp values
                 _lerpPositionValue += Time.deltaTime / _lerpDuration;
@@ -165,7 +165,7 @@ namespace TOJAM
 
         private void Update()
         {
-            if (GameManager.Instance.State == Constants.GameState.game)
+            if (GameManager.Instance.State == Constants.GameState.game || GameManager.Instance.State == Constants.GameState.launching)
             {
                 CheckPiecesNeeded();
 

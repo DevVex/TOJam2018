@@ -267,7 +267,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4445696085797768}
-  - component: {fileID: 114900067431317150}
   m_Layer: 9
   m_Name: Character
   m_TagString: PlayerPerson
@@ -1614,6 +1613,7 @@ MonoBehaviour:
   tireEffects:
   - layer: Oil
     effect: {fileID: 1926448557875498, guid: c4e7951b74e842245aaa8cc2d5581784, type: 2}
+  _playerRef: {fileID: 0}
 --- !u!114 &114258143910001022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1638,6 +1638,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cartRigidbody: {fileID: 50684916277570438}
+  _bodyParent: {fileID: 1620257019377992}
+  _personBody: {fileID: 50725353132536314}
   _jumpForce: 8.666667
   _maxJumpForce: 216.66672
 --- !u!114 &114385930472129200
@@ -1657,19 +1659,7 @@ MonoBehaviour:
   tireEffects:
   - layer: Oil
     effect: {fileID: 1926448557875498, guid: c4e7951b74e842245aaa8cc2d5581784, type: 2}
---- !u!114 &114900067431317150
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1620257019377992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e54ff3f39c0d264ca1ceb4c7e706b71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraTarget: {fileID: 0}
-  body: {fileID: 50725353132536314}
+  _playerRef: {fileID: 0}
 --- !u!212 &212062084134591166
 SpriteRenderer:
   m_ObjectHideFlags: 1
