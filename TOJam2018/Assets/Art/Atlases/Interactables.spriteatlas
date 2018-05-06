@@ -8,28 +8,47 @@ SpriteAtlas:
   m_Name: Interactables
   m_EditorData:
     textureSettings:
-      serializedVersion: 2
       anisoLevel: 1
       compressionQuality: 50
       maxTextureSize: 2048
       textureCompression: 0
+      colorSpace: 1
       filterMode: 1
       generateMipMaps: 0
       readable: 0
       crunchedCompression: 0
-      sRGB: 1
     platformSettings: []
     packingParameters:
-      serializedVersion: 2
-      padding: 4
+      paddingPower: 2
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+    packedHash:
+      serializedVersion: 2
+      Hash: 0c61db5a151d82dfe1ea1be566670f98
     variantMultiplier: 1
+    bindAsDefault: 1
+    finalFormat: 4
+    hashString: 0c61db5a151d82dfe1ea1be566670f98
+    totalSpriteSurfaceArea: 1979583
     packables:
     - {fileID: 102900000, guid: 0142363f44e5f93489507935c3007042, type: 3}
-    bindAsDefault: 1
+    packedSpriteRenderDataKeys:
+    - 65dfed6f9e930ca4e9ed4142f2433251: 21300000
+    - 0e037900b9a4c84439d967f80e13125d: 21300000
+    - 0d12a1c8f023ab6498d24f4646c6d4e7: 21300000
+    - 04d4b7ffacc9e8a47b6af2d35056036d: 21300000
+    - b7fc6ae4ef987bd4daaf9ddbada0d14b: 21300000
+    - 756ee4756e3e87b47b47f09b1b20b815: 21300000
+    - 7292f133722d01a4a9d1089147c0db28: 21300000
+    - 30d36f07fb85ee74c8dc84080564651d: 21300000
+    - 3b726c0dc0e52b44d93715de93c65127: 21300000
+    - a329583fffbe6dc4293c1356302ae62d: 21300000
+    - 48e54789ca4e7e2409a70b411f0298f6: 21300000
+    - 1be8db34a77a63342a57ab57159a17c5: 21300000
+    - 2be05b8778e664c49b896275daa2b57d: 21300000
+    - b948f827d0be39b46a2abf8ec65c704a: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 65dfed6f9e930ca4e9ed4142f2433251, type: 3}
