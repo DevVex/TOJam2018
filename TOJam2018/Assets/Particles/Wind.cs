@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TOJAM;
 
 public class Wind : MonoBehaviour {
 
     public ParticleSystem wind;
-    public FollowTarget cameraTarget;
+    public PlayerManager playerManager;
 
     private Rigidbody2D targetRigidBody;
     private ParticleSystem.EmissionModule emissionModule;
@@ -17,7 +18,7 @@ public class Wind : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        targetRigidBody = cameraTarget.target.GetComponent<Rigidbody2D>();
+        targetRigidBody = playerManager.FollowTarget.GetComponent<Rigidbody2D>();
         if (targetRigidBody.velocity.x < 6)
         {
             wind.gameObject.SetActive(false);
