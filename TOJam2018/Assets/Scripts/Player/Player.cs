@@ -109,21 +109,29 @@ namespace TOJAM
             }
         }
 
+        private void FixedUpdate ()
+        {
+            if (GameManager.Instance.State == Constants.GameState.game)
+            {
+                UpdateSpeed();
+                UpdateControls();
+
+            }
+            else if (GameManager.Instance.State == Constants.GameState.launching)
+            {
+                UpdatePreLaunch();
+            }
+        }
+
 
         // Update is called once per frame
         void Update()
         {
             if (GameManager.Instance.State == Constants.GameState.game)
             {
-                UpdateSpeed();
                 UpdateJump();
-                UpdateControls();
                 UpdateSprites();
 
-            }
-            else if (GameManager.Instance.State == Constants.GameState.launching)
-            {
-                UpdatePreLaunch();
             }
         }
 

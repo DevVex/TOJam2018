@@ -21,7 +21,7 @@ public class ShoppingCartMove : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         rigidBody2D.velocity = transform.right * speed;
 
 

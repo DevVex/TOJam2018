@@ -20,16 +20,23 @@ public class Cape : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        this.transform.position = new Vector3(attachTo.transform.position.x + offset.x, attachTo.transform.position.y + offset.y, 5.0f);
+
+        //cape.externalAcceleration = new Vector3(-1 * (rigidBody2d.velocity.x + speed), 0, 0);
+
+    }
+
+    private void FixedUpdate()
+    {
         float speed = minimumSpeed;
         if (PlayerManager.Instance.Player.HasLaunched)
         {
             speed = 0;
         }
-        this.transform.position = new Vector3(attachTo.transform.position.x + offset.x, attachTo.transform.position.y + offset.y, 5.0f);
+
         target = PlayerManager.Instance.FollowTarget.gameObject;
         rigidBody2d = target.GetComponent<Rigidbody2D>();
         cape.externalAcceleration = new Vector3(-1 * (rigidBody2d.velocity.x + speed), -1 * rigidBody2d.velocity.y, 0);
-        //cape.externalAcceleration = new Vector3(-1 * (rigidBody2d.velocity.x + speed), 0, 0);
-
     }
 }
